@@ -8,27 +8,27 @@
 
 \begin{document}
 
-\section*{POSE: Phase II: Practical Extensible Mutation Generation and Management for Any Language}
+\section*{POSE: Phase II: \um\ Practical Extensible Mutation Generation and Management for Any Language}
 
 \subsection*{Overview}
 \vspace{-2mm}
 
-However, the growth of \um\ is limited by (1) its flat/informal leadership structure with only one author at the top who can approve new code contribution and (2) lack of documentation and support for development environment integeration, and (3) lack of external contributors from various associated communities.
+The complexity of modern software systems, and the need for widely used libraries and other ``code infrastructure'' to be absolutely reliable, demands effective \emph{testing}.  Bugs in code have increasing impact on society at large (e.g., numerous security breaches traceable to incorrect code, and very high economic cost.  Testing remains to this day the single most effective means of finding bugs when their cost is low.  However, testing relies on knowing if tests are good/sufficient, and how to improve them.  Mutation analysis, based on systematically injecting ``fake'' bugs into programs, has long been theoretically understood as perhaps the most powerful tool to aid test evaluation and improvement, but has only recently been accepted as a practical approach, due to increased computing power.  \um, an open source mutation analysis tool for \emph{any programming language}, is already the most widely used tool for some important languages, and is the \emph{only} working tool for other important languages.
+
+However, the growth of \um\ is limited by (1) its flat/informal leadership structure with only one author at the top who can approve new code contribution,  (2) lack of documentation and support for test and development environment integration, and (3) lack of external contributors from various associated communities associated with languages and programming environments.
 We propose to expand the open-source ecosystem of users, contributors, and developers of \um, by fixing these problems.
-In particular, we propose to work on creating (1) a written governance document with a new hierarchical leadership structure, (2) new documentation materials for onboarding new users/contributors, including translations and community standards to encourage diversity/inclusion, and (3) infrastructure for connecting \um\ to other tools.
-Furthermore, we plan to systematically evaluate the effects of our project on the \um\ ecosystem by measuring changes to important metrics (number of unique contributors, diversity of contributors. 
+In particular, we propose to work on creating (1) a written governance document with a new hierarchical leadership structure, (2) new documentation materials for onboarding new users/contributors, including translations and community standards to encourage diversity/inclusion, and (3) critical infrastructure for connecting \um\ to other tools.  Furthermore, we plan to systematically evaluate the effects of our project on the \um\ ecosystem by measuring changes to important metrics (number of unique contributors, diversity of contributors, languages supported, inclusion in public CI). 
 The result of this project will be a self-sustaining open-source ecosystem for \um, which will allow it to grow into a locus for the widespread practical application of (and research on) mutation testing.
 
 \subsection*{Intellectual Merit.} 
 \vspace{-2mm}
-Modern software engineering for critical systems relies on automated tests to encode and enforce notions of correctness.  Determining whether such tests are sufficiently powerful to detect anomalous behavior is a fundamental problem of computer science; mutation testing, thanks to advances in computing power, has become the most promising practical method for this task.  This project will create new documentation expanding the \um\ ecosystem, making it possible for developers to apply mutation testing in novel languages or using project-specific operators, and enabling the development of novel tooling for novel applications of mutants to software engineering tasks.  More researchers and developers will be able to use \um\ to explore and enhance the power of mutants to guide software development.
-
+Modern software engineering for critical systems relies on automated tests to encode and enforce notions of correctness.  Determining whether such tests are sufficiently powerful to detect anomalous behavior is a fundamental problem of computer science; mutation testing, thanks to advances in computing power, has become the most promising practical method for this task.  This project will create new documentation expanding the \um\ ecosystem, making it possible for developers to apply mutation testing in novel languages or using project-specific operators, and enabling the development of novel tooling for novel applications of mutants.
 \subsection*{Broader Impacts}
 \vspace{-2mm}
 
 Efficient software is increasingly important in our modern digital/networked society since ``software is eating the world'' and this process shows no sign of stopping or even decelerating. 
-Our project will benefit every area of society where software is employed since our project aims to improve a fundamental tool for effective software testing, \um..
-Furthermore, because our project emphasizes documentation and translations for onboarding new users/contributors, our project will result in more developers, and more diverse developers, becoming aware of this powerful tool for mutation-based analyses of code and tests.
+Our project will benefit every area of society where software is employed since our project aims to improve a fundamental tool for effective software testing, \um.
+Furthermore, because our project emphasizes documentation and translations for onboarding new users/contributors, our project will result in more developers, and more diverse developers, becoming aware of this powerful tool.
 
 \paragraph{Keywords:}
 CISE; mutation testing; software testing infrastructure; software specification
@@ -38,5 +38,89 @@ CISE; mutation testing; software testing infrastructure; software specification
 %\pagenumbering{arabic}
 \pagenumbering{gobble}
 \section{Context of the Open-Source Ecosystem}%section required by call, otherwise RWR
+
+\subsection{Problem and societal need that will be addressed: construction of effective tests for software systems}
+
+There is no need to argue the massive importance of computer software to almost every facet of modern life, economic, political, and personal.  From the underpinnings of the energy infrastructure to the methods people use to communicate with friends and family, software systems support human life.  Faulty software has vast economic costs, and increasingly may have potential to inflict serious loss of life.  \emph{Software testing} remains the most widely used and scalable approach to finding and preventing serious bugs in software systems.  However, software testing has always faced a fundamental problem, recognized in the earliest major works on the topic \cite{Beizer}: how do we know when a test effort is sufficient, and how to we know where to work to improve an insufficient effort?
+
+\emph{Code coverage}, indicating parts of a computer program not exercised by tests, was long considered as a method:  find code not exercised, and exercise it.  However, coverage has a fundamental problem: code can be exercised, but not seriously tested, if a test executes a program path but does not properly check that the behavior of the progam is correct.  This ``oracle problem'' is critical: the goal of software testing is to find bugs, not to exercise code (which is simply an indirect means to approach finding bugs).  Mutation testing/analysis offers to close the gap between measures of testing efforts and the true purposes of testing by operating directly on the goal of testing: mutants are \emph{injected bugs in code}.  Mutation analysis provides a user with a \emph{list of undetected bugs}.  Such bugs can indicate failures to exercise code, in which case they can duplicate the effects of code coverage, but can also tell when code has been exercised, but not with sufficiently diversified data.  Most importantly, mutants can show when code is exercised on relevant data, in fact triggering bad behavior of the software, but the tests do not properly check that the software behaves correctly.
+
+\subsection{\um,  a practical, extensible mutation generation and management tool for any language}
+
+\paragraph{License.}
+
+\paragraph{Novelty of \um: a single tool for mutation in any language and tool environment.}
+
+
+
+\subsection{A substantial base of users and contributors already exists}
+
+\subsubsection{Letters of collaboration from users and contributors in academia and industry}
+
+
+\subsection{Problems with current development model, dissemination methods, and testing}
+
+\subsubsection{Problems with flat development model}
+
+\subsubsection{Problems with the methods of dissemination}
+
+\subsubsection{Problems with the testing methods and infrastructure}
+
+\subsection{Justification that the OSE will generate impact in the current technological landscape, that NSF support is critical, and vision for long-term sustainability}
+
+\section{Proposed project objectives and activities}
+
+\subsection{Modernizing the contribution process and defining explicit governance}
+
+
+\paragraph{Writing explicit governance documentation to facilitate a sustainable organizational structure}
+
+\paragraph{Creating new roles to facilitate hierarchical PR submission/review}
+
+\paragraph{Creating new release management documentation and roles to facilitate more frequent releases}
+
+\subsection{Improving outreach and onboarding for new users and developers}
+
+\paragraph{Creating documentation to support the onboarding of new users and developers.} \label{sec:doc}
+
+\subsection{Improved testing methods and infrastructure}
+
+\paragraph{Benchmark comparisons with similar software}
+
+
+\section{Evaluation Plan} \label{sec:eval}
+
+\subsection{Formative evaluation}
+
+
+\subsection{Summative evaluation}
+
+\section{Project team}
+
+
+\textbf{A computer science master student at NAU} will be recruited to work as a graduate research assistant (GRA) during the academic year (20 hours per week), and during the summer (40 hours per week, 3 months).
+The student will be responsible for documentation, testing, and project evaluation.
+
+\section{Broader Impacts}
+
+
+
+\section{Results from Prior NSF Support}
+
+
+
+\textbf{Co-PI Gerosa} was awarded a grant entitled: Gender-Inclusive Open Source through Gender-Inclusive Tools (IIS-1900903 \$852K, 8/1/19 - 7/31/23). 
+\textbf{IM:} This work develops best practices and guidelines for promoting diversity and inclusivity in OSS tools. 
+\textbf{BI:} Inclusive tools promote more equitable opportunities for women and men in OSS. 
+\textbf{Relation:} We will use the results from this award to promote a gender-inclusive  \um.
+\textbf{Publications:} Several publications have been produced under this award~\cite{balali2020recommending,dias2021makes,silva2020google,gerosa2021shifting,silva2020theory,trinkenreich2020hidden,chatterjee2021aid,mendez2019gendermag,stumpf2020gender,guizani2020gender,hilderbrand2020engineering,padala2020gender,wessel2020effects}, and others are under review or preparation, with~\cite{balali2020recommending} and~\cite{wessel2020effects} receiving awards. 
+
+
+\newpage
+%\pagenumbering{roman}
+%\setcounter{page}{1} 
+%\bibliographystyle{unsrt}
+\bibliographystyle{plain}
+\bibliography{bibliography}
 
 \end{document}
